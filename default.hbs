@@ -16,38 +16,19 @@
 <body class="{{body_class}}">
 <div class="gh-viewport">
 
-<header id="gh-head" class="gh-head">
-    <nav class="gh-head-inner gh-container">
-
-        <div class="gh-head-brand">
-            <a class="gh-head-logo" href="{{@site.url}}">
-                {{#if @site.logo}}
-                    <img src="{{@site.logo}}" alt="{{@site.title}}" />
-                {{else}}
-                    {{@site.title}}
-                {{/if}}
-            </a>
-            <a class="gh-burger" role="button">
-                <div class="gh-burger-box">
-                    <div class="gh-burger-inner"></div>
-                </div>
-            </a>
-        </div>
-        <div class="gh-head-menu">
-            {{navigation}}
-        </div>
-        <div class="gh-head-actions">
-            <div class="gh-head-actions-list">
-                {{#if @site.facebook}}
-                <a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-                {{/if}}
-                {{#if @site.twitter}}
-                <a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-                {{/if}}
-                <a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
-            </div>
-        </div>
-    </nav>
+<header class="w-full px-6 py-6">
+  <div class="container mx-auto flex flex-row flex-wrap justify-between items-center">
+    <a class="flex items-center font-serif text-xl z-20" href="{{@site.url}}">
+      <div class="overflow-hidden w-10 h-10 rounded-full ring-3 ring-blue-300 hover:ring-blue-400"
+      >
+        {{#if @site.logo}}
+          <img src="{{@site.logo}}" alt="{{@site.title}}" />
+        {{/if}}
+      </div>
+      <span class="ml-4">Defite</span>
+    </a>
+    <nav class="duration-200 ease-in opacity-0 transform scale-95 <md:-z-10 md:opacity-100 md:transform-none">{{navigation}}</nav>
+  </div>
 </header>
 
 <main class="gh-main">
@@ -57,56 +38,11 @@
 
 </main>
 
-<footer class="gh-foot">
-    <div class="gh-container">
-        <div class="gh-foot-menu">
-            {{navigation}}
-        </div>
-        <div class="gh-foot-meta">
-            Published with <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
-        </div>
-    </div>
-</footer>
+{{> "footer"}}
 
 </div>
 
 {{!-- <foot> --}}
-
-<script src="{{asset "built/jquery-3.4.1.min.js"}}"></script>
-
-{{#if pagination.pages}}
-<script>
-    var maxPages = parseInt('{{pagination.pages}}');
-</script>
-<script src="{{asset "built/infinitescroll.js"}}"></script>
-{{/if}}
-
-<script>
-$(document).ready(function () {
-    // Mobile Menu Trigger
-    $('.gh-burger').click(function () {
-        $('body').toggleClass('gh-head-open');
-    });
-});
-</script>
-
-{{#is "post, page"}}
-<script src="{{asset "built/jquery.fitvids.js"}}"></script>
-<script>
-var images = document.querySelectorAll('.kg-gallery-image img');
-images.forEach(function (image) {
-    var container = image.closest('.kg-gallery-image');
-    var width = image.attributes.width.value;
-    var height = image.attributes.height.value;
-    var ratio = width / height;
-    container.style.flex = ratio + ' 1 0%';
-});
-$(document).ready(function () {
-    var $postContent = $(".gh-content");
-    $postContent.fitVids();
-});
-</script>
-{{/is}}
 
 {{ghost_foot}}
 {{!-- Outputs important scripts - should always be included before closing body tag --}}

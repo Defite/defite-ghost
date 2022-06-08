@@ -8,231 +8,260 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* Lib - Local component imports
 /* ---------------------------------------------------------- */
 
-/* Base components */
-@import "vars.css";
-@import "components/global.css";
-@import "components/forms.css";
-@import "components/buttons.css";
-
 /* Ghost components */
-@import "ghost/header.css";
+/* @import "ghost/header.css"; */
 @import "ghost/content.css";
-@import "ghost/readmore.css";
+/*@import "ghost/readmore.css";
 @import "ghost/members.css";
 @import "ghost/errors.css";
 @import "ghost/footer.css";
-@import "ghost/badge.css";
+@import "ghost/badge.css"; */
 
+@tailwind base;
+@tailwind components;
 
+@tailwind utilities;
 
-/* Main - Your styles here! Edit below
-/* ---------------------------------------------------------- */
+/*
+* Intro block 
+*/
 
-html,
-.gh-viewport {
+.intro {
+    @apply px-6;
+    @apply py-8;
+
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: #fff;
+    flex-flow: row wrap;
 }
 
-.gh-main {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
+.introTitle {
+    @apply font-serif;
+    @apply font-bold;
+    @apply text-4xl;
+    @apply leading-tight;
+
+    /* line-height: 1.1; */
+    margin-bottom: 2.75rem;
 }
 
-.gh-page {
-    padding: 0 4vmin;
-}
-
-.gh-article {
-    padding: 8vmin 0;
-}
-
-.gh-postfeed {
-    padding: 8vmin 0;
-}
-
-.gh-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.gh-head-actions a {
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
-    padding: 10px;
-}
-
-.gh-head-actions a svg {
-    height: 1.8rem;
-    fill: currentcolor;
-}
-
-.gh-head-actions a:first-child svg {
-    margin-left: 20px;
-}
-
-.gh-head-actions a:last-child svg {
-    height: 2rem;
-}
-
-/* Index
-/* ---------------------------------------------------------- */
-
-.gh-card:not(:first-child) {
-    margin: 8vmin auto 0;
-}
-
-.gh-card-link {
-    display: flex;
-    flex-direction: column;
-}
-
-.gh-card-image {
-    width: 100%;
-    max-height: 700px;
-    object-fit: cover;
-    margin-bottom: 4vmin;
-}
-
-.gh-card-meta {
-    display: block;
-    margin: 0 0 1rem;
-    font-size: 1.4rem;
-    line-height: 1.2em;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-.gh-card-content {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.6rem;
-}
-
-.gh-card-content p {
-    margin: 1.2rem 0;
-    padding: 0 6vmin;
-}
-
-.gh-card-content > strong {
+.intro :global(a) {
+    position: relative;
     display: inline-block;
-    padding: 1px 0;
-    font-weight: 500;
-    box-shadow: 0 -1px 0 0 inset currentColor;
-    opacity: 0.5;
 }
 
+.intro :global(a::after) {
+    @apply bg-blue-100;
 
-/* Page
-/* ---------------------------------------------------------- */
-
-.gh-page-head {
-    margin: 0 auto;
-    padding: 8vmin 0 4vmin;
-    text-align: center;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 60%;
+    left: -0.1em;
+    right: -0.1em;
+    bottom: 5px;
+    transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
 }
 
-.gh-page-image {
-    margin: 4vmin 0 0 0;
+.intro :global(a:hover::after) {
+    top: 0;
 }
 
-.gh-page-head > p {
-    max-width: 720px;
-    margin: 0.3em auto 0;
-    padding: 0 6vmin;
-    font-size: 1.3em;
-    line-height: 1.4em;
-    opacity: 0.5;
+.introSub {
+    @apply text-2xl;
+    @apply tracking-wider;
+    @apply leading-relaxed;
+    @apply mb-14;
+
+    font-weight: 300;
+
 }
 
-@media (max-width: 700px) {
-    .gh-page-head > p {
-        font-size: 1.6rem;
+.introButton {
+    @apply rounded-full;
+    @apply border-2;
+    @apply border-blue-400;
+    @apply text-xl;
+    @apply px-10;
+    @apply pt-5;
+    @apply pb-4;
+    @apply text-blue-400;
+    @apply space-x-3;
+    @apply shadow-xl;
+
+    cursor: pointer;
+    display: none;
+}
+
+a.introButton::after {
+    content: none;
+}
+
+.introButton:hover {
+    @apply bg-blue-400;
+    @apply text-white;
+}
+
+.introButtonIcon {
+    display: inline-block;
+    vertical-align: sub;
+}
+
+@screen sm {
+    .introTitle {
+        @apply text-5xl;
+        @apply leading-tight;
     }
 }
 
+@screen md {
+    .introTitle {
+        @apply text-6xl;
 
-/* Post
-/* ---------------------------------------------------------- */
+        line-height: 1.1;
+    }
 
-.gh-header {
-    padding: 0 0 8vmin 0;
-    text-align: center;
+    .introButton {
+        display: block;
+    }
 }
 
-.gh-post-meta {
-    display: block;
-    margin: 0 0 1rem;
-    font-size: 1.4rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.8;
+@screen lg {
+    .introTitle {
+        @apply text-intro;
+    }
+
+    .intro {
+        @apply px-12;
+        @apply py-32;
+    }
 }
 
-.gh-excerpt {
-    margin: 1rem 0 0 0;
-}
+/*
+* Posts list
+*/
+.post-list {
+    @apply -mx-5;
 
-.gh-feature-image {
-    grid-column: wide-start / wide-end;
-    width: 100%;
-    margin: 8vmin 0 0;
-}
-
-.gh-post-footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+    grid-gap: 3rem;
     margin: 2rem 0;
 }
 
-
-/* Author Archive
-/* ---------------------------------------------------------- */
-
-.gh-author-image {
-    height: 12vmin;
-    width: 12vmin;
-    margin: 0 auto 1.5em;
-    border-radius: 100%;
-    overflow: hidden;
-    object-fit: cover;
+.post-list__title {
+    @apply text-4xl;
+    @apply font-serif;
+    @apply mb-16;
 }
 
-.gh-author-meta {
-    margin: 2vmin 0 0 0;
-    font-size: 1.2em;
-}
-
-.gh-author-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.gh-author-links a {
+/*
+* Post card
+*/
+.post-card {
+    @apply mb-5;
+    @apply rounded-md;
+    @apply shadow-xl;
+  
     position: relative;
-    display: inline-flex;
-    align-items: center;
-    margin: 0 0.75vmin;
-}
+    overflow: hidden;
+    height: 300px;
+  }
+  
+  .post-card__inner {
+    @apply text-white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding: 1rem;
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.15) 50%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  }
+  
+  .post-card:hover .post-card__inner {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  }
+  
+  .post-card__title {
+    @apply font-bold;
+    @apply font-serif;
+    @apply text-2xl;
+  
+    margin-bottom: 1rem;
+  }
+  
+  .post-card__description {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .post-card:hover .post-card__description {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .post-card__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .post-card__link::before {
+    content: '';
+  
+    position: absolute;
+  }
+  
+  .post-card__date {
+    @apply text-gray-400;
+  }
 
-.gh-author-links a + a:before {
-    display: block;
-    content: "";
-    margin: 0 1.25vmin 0 0;
-    height: 1em;
-    width: 1px;
-    background: rgba(0,0,0,0.3);
-    transform: rotate(20deg);
-}
+/*
+* Footer
+*/
 
-@media (max-width: 700px) {
-    .gh-author-meta {
-        font-size: 1.6rem;
+.footer {
+    width: 100%;
+    border-top: 1px solid;
+    @apply border-slate-200;
+  
+    @apply px-6;
+    @apply py-8;
+  }
+  
+  .footerLeft {
+    @apply text-sm;
+    @apply text-gray-400;
+  }
+  
+  .footerLink {
+    @apply text-gray-700;
+  }
+  
+  .footerLink:hover {
+    @apply text-blue-400;
+  }
+  
+  @screen lg {
+    .footer {
+      @apply px-16;
     }
-}
+  }
+
+/*
+* Post
+*/

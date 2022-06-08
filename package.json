@@ -1,14 +1,15 @@
 {
-    "name": "ghost-starter-theme",
+    "name": "defite-ghost-theme",
     "description": "A custom theme for ghost",
     "demo": "https://starter.ghost.io",
     "version": "1.0.0",
     "engines": {
-        "ghost": ">=4.0.0"
+        "ghost": ">=5.0.0"
     },
     "license": "MIT",
     "screenshots": {
-        "desktop": "assets/screenshot-desktop.jpg"
+        "desktop": "assets/screenshot-desktop.jpg",
+        "mobile": "assets/screenshot-mobile.jpg"
     },
     "scripts": {
         "dev": "gulp",
@@ -20,9 +21,9 @@
         "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
     },
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org"
+        "name": "Defite",
+        "email": "me@defite.ru",
+        "url": "https://nikita.codes"
     },
     "gpm": {
         "type": "theme",
@@ -64,6 +65,7 @@
     ],
     "config": {
         "posts_per_page": 15,
+        "card_assets": true,
         "image_sizes": {
             "xxs": {
                 "width": 30
@@ -83,6 +85,31 @@
             "xl": {
                 "width": 2000
             }
+        },
+        "custom": {
+            "intro_title": {
+                "type": "text",
+                "default": "I'm John Doe.",
+                "group": "homepage"
+            },
+            "intro_title_motto": {
+                "type": "text",
+                "default": "I made this page.",
+                "group": "homepage"
+            },
+            "intro_subtext": {
+                "type": "text",
+                "default": "I'm senior engineer in Private Inc. Usually I don't mess around Ghost themes. You can change this text in `/partials/intro.hbs`",
+                "group": "homepage"
+            }
         }
+    },
+    "dependencies": {
+        "tailwindcss": "^3.0.24"
+    },
+    "renovate": {
+        "extends": [
+            "@tryghost:theme"
+        ]
     }
 }

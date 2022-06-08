@@ -1,0 +1,20 @@
+<section class="intro">
+    {{#if @custom.intro_title}}
+        <h1 class="introTitle">
+            <p>{{@custom.intro_title}}</p>
+            {{#if @custom.intro_title_motto}}
+                <p>{{@custom.intro_title_motto}}</p>
+            {{/if}}
+        </h1>
+    {{/if}}
+    {{#if @custom.intro_subtext}}
+        <h3 class="introSub">{{@custom.intro_subtext}}</h3>
+    {{/if}}
+
+    <a href="#posts" class="introButton">
+        <span>Let&apos;s roll</span>
+        <span class="animate-bounce introButtonIcon">
+            &#8595;
+        </span>
+    </a>
+</section>

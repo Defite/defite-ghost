@@ -1,0 +1,116 @@
+.intro {
+    @apply px-1.5rem;
+    @apply py-2rem;
+  
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .introTitle {
+    @apply text-2rem;
+    @apply font-serif;
+    @apply font-bold;
+    @apply leading-snug;
+  
+    /* line-height: 1.1; */
+    margin-bottom: 2.75rem;
+  }
+  
+  .intro :global(a) {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .intro :global(a::after) {
+    @apply bg-blue-100;
+  
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 60%;
+    left: -0.1em;
+    right: -0.1em;
+    bottom: 5px;
+    transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+  }
+  
+  .intro :global(a:hover::after) {
+    top: 0;
+  }
+  
+  .introSub {
+    @apply text-2xl;
+    @apply tracking-wider;
+    @apply leading-relaxed;
+    @apply mb-15;
+  
+    font-weight: 300;
+  }
+  
+  .introButton {
+    @apply rounded-full;
+    @apply border-2;
+    @apply border-blue-400;
+    @apply text-xl;
+    @apply px-10;
+    @apply pt-5;
+    @apply pb-4;
+    @apply text-blue-400;
+    @apply space-x-3;
+    @apply shadow-xl;
+  
+    cursor: pointer;
+    display: none;
+  }
+  
+  a.introButton::after {
+    content: none;
+  }
+  
+  .introButton:hover {
+    @apply bg-blue-400;
+    @apply text-white;
+  }
+  
+  .introButtonIcon {
+    display: inline-block;
+    vertical-align: sub;
+  }
+  
+  @screen xsm {
+    .introTitle {
+      @apply text-2.5rem;
+      @apply leading-tight;
+    }
+  }
+  
+  @screen sm {
+    .introTitle {
+      @apply text-3.5rem;
+      @apply leading-tight;
+    }
+  }
+  
+  @screen md {
+    .introTitle {
+      @apply text-4rem;
+  
+      line-height: 1.1;
+    }
+  
+    .introButton {
+      display: block;
+    }
+  }
+  
+  @screen lg {
+    .introTitle {
+      @apply text-5.5rem;
+    }
+  
+    .intro {
+      @apply px-3rem;
+      @apply py-8rem;
+    }
+  }
+  

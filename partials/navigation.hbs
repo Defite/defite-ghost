@@ -1,0 +1,7 @@
+<ul class="flex flex-row flex-wrap">
+    <!-- Loop through the navigation items -->
+    {{#foreach navigation}}
+    <li class="nav-{{slug}}{{#if current}} nav-current{{/if}} ml-6"><a href="{{url absolute="true"}}">{{label}}</a></li>
+    {{/foreach}}
+    <!-- End the loop -->
+</ul>
