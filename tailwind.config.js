@@ -7,9 +7,10 @@ module.exports = {
             },
             fontFamily: {
                 serif: ["Merriweather", "serif"],
+                sans: ["Raleway", "sans-serif"]
             },
             fontSize: {
-                'intro': '5.5rem' 
+                'intro': '5.5rem'
             },
             screens: {
                 'xsm': { min: '425px'},

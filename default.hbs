@@ -16,13 +16,13 @@
 <body class="{{body_class}}">
 <div class="gh-viewport">
 
-<header class="w-full px-6 py-6">
+<header class="gh-head w-full px-6 py-6">
   <div class="container mx-auto flex flex-row flex-wrap justify-between items-center">
     <a class="flex items-center font-serif text-xl z-20" href="{{@site.url}}">
       <div class="overflow-hidden w-10 h-10 rounded-full ring-3 ring-blue-300 hover:ring-blue-400"
       >
         {{#if @site.logo}}
-          <img src="{{@site.logo}}" alt="{{@site.title}}" />
+          <img class="object-cover w-full h-full" src="{{@site.logo}}" alt="{{@site.title}}" />
         {{/if}}
       </div>
       <span class="ml-4">Defite</span>

@@ -7,25 +7,19 @@ production stylesheet in assets/built/screen.css using: gulp dev
 
 /* Lib - Local component imports
 /* ---------------------------------------------------------- */
-
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap');
-
-/* Ghost components */
-/* @import "ghost/header.css"; */
-@import "ghost/content.css";
-/*@import "ghost/readmore.css";
-@import "ghost/members.css";
-@import "ghost/errors.css";
-@import "ghost/footer.css";
-@import "ghost/badge.css"; */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
-
 @tailwind utilities;
 
+body {
+    -webkit-font-smoothing: antialiased;
+    @apply text-slate-700;
+}
+
 /*
-* Intro block 
+* Intro block
 */
 
 .intro {
@@ -163,12 +157,12 @@ a.introButton::after {
     @apply mb-5;
     @apply rounded-md;
     @apply shadow-xl;
-  
+
     position: relative;
     overflow: hidden;
     height: 300px;
   }
-  
+
   .post-card__inner {
     @apply text-white;
     position: absolute;
@@ -185,7 +179,7 @@ a.introButton::after {
       rgba(0, 0, 0, 0.4) 100%
     );
   }
-  
+
   .post-card:hover .post-card__inner {
     background: linear-gradient(
       0deg,
@@ -193,27 +187,27 @@ a.introButton::after {
       rgba(0, 0, 0, 0.4) 100%
     );
   }
-  
+
   .post-card__title {
     @apply font-bold;
     @apply font-serif;
     @apply text-2xl;
-  
+
     margin-bottom: 1rem;
   }
-  
+
   .post-card__description {
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
       transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .post-card:hover .post-card__description {
     transform: translateY(0);
     opacity: 1;
   }
-  
+
   .post-card__link {
     position: absolute;
     top: 0;
@@ -221,13 +215,13 @@ a.introButton::after {
     right: 0;
     bottom: 0;
   }
-  
+
   .post-card__link::before {
     content: '';
-  
+
     position: absolute;
   }
-  
+
   .post-card__date {
     @apply text-gray-400;
   }
@@ -240,24 +234,24 @@ a.introButton::after {
     width: 100%;
     border-top: 1px solid;
     @apply border-slate-200;
-  
+
     @apply px-6;
     @apply py-8;
   }
-  
+
   .footerLeft {
     @apply text-sm;
     @apply text-gray-400;
   }
-  
+
   .footerLink {
     @apply text-gray-700;
   }
-  
+
   .footerLink:hover {
     @apply text-blue-400;
   }
-  
+
   @screen lg {
     .footer {
       @apply px-16;
@@ -267,3 +261,110 @@ a.introButton::after {
 /*
 * Post
 */
+.post-template {
+    @apply lining-nums;
+}
+
+.post-template .gh-head {
+    @apply bg-gray-100;
+}
+
+.gh-article .gh-header {
+    @apply bg-gray-100;
+    @apply pt-24;
+    @apply pb-10;
+}
+
+.post-template .gh-title {
+    @apply font-sans;
+    @apply font-extrabold;
+    @apply text-5xl;
+    @apply text-zinc-800;
+}
+
+.post-template .gh-excerpt {
+    @apply mt-7;
+    @apply text-xl;
+    @apply text-gray-500;
+}
+
+.gh-post-meta {
+    @apply text-gray-500;
+    @apply text-sm;
+    @apply uppercase;
+    @apply font-bold;
+    @apply mb-4;
+}
+
+/* Content grid
+/* ---------------------------------------------------------- */
+
+/* Canvas creates a multi-column, centered grid which the post
+is laid out on top of. Canvas just defines the grid, we don't
+use it for applying any other styles. */
+
+.gh-canvas {
+    display: grid;
+    grid-template-columns:
+        [full-start]
+        minmax(max(4vmin, 20px), auto)
+            [wide-start]
+            minmax(auto, 240px)
+                [main-start]
+                    min(720px, calc(100% - max(8vmin, 40px)))
+                [main-end]
+            minmax(auto, 240px)
+            [wide-end]
+        minmax(max(4vmin, 20px), auto)
+        [full-end]
+;
+}
+
+.gh-canvas > * {
+    grid-column: main-start / main-end;
+}
+
+.kg-width-wide {
+    grid-column: wide-start / wide-end;
+}
+
+.kg-width-full {
+    grid-column: full-start / full-end;
+}
+
+.kg-width-full img {
+    width: 100%;
+}
+
+.gh-content {
+    @apply mt-10;
+}
+
+.gh-content p {
+    @apply text-lg;
+}
+
+.gh-content .kg-card+:not(.kg-card):not([id]),
+.gh-content :not(.kg-card):not([id])+.kg-card {
+    @apply mt-10;
+}
+
+.gh-content figcaption {
+    @apply text-gray-500;
+    @apply text-base;
+    @apply mt-4;
+    @apply text-center;
+}
+
+.gh-content>[id]:not(:first-child) {
+    @apply mt-14;
+    @apply text-3xl;
+}
+
+.gh-content>*+* {
+    @apply mt-6;
+}
+
+.gh-content>[id]+* {
+    @apply mt-6;
+}
