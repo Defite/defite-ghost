@@ -1,0 +1,12 @@
+<aside class="gh-readmore">
+    <h2 class="post-list__title_small">Read more</h2>
+    {{#get "posts" filter="id:-{{id}}" limit="2" as |more_posts|}}
+        {{#if more_posts}}
+            <aside class="post-list">
+                {{#foreach more_posts}}
+                    {{> "card"}}
+                {{/foreach}}
+            </aside>
+        {{/if}}
+    {{/get}}
+</aside>

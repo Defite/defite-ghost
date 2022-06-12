@@ -1,0 +1,17 @@
+<div class="gh-canvas prevnext-navigation-wrap">
+    <div class="prevnext-navigation">
+        {{#prev_post}}
+            <div>
+                <h3 class="text-left prevnext-navigation__link"><a href={{url}}>&larr; Prev</a></h3>
+                {{> "card"}}
+            </div>
+        {{/prev_post}}
+
+        {{#next_post}}
+            <div>
+                <h3 class="text-right prevnext-navigation__link"><a href={{url}}>Next &rarr;</a></h3>
+                {{> "card"}}
+            </div>
+        {{/next_post}}
+    </div>
+</div>

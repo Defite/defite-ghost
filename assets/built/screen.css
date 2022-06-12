@@ -506,6 +506,9 @@ video {
 .ml-6{
   margin-left: 1.5rem;
 }
+.mb-4{
+  margin-bottom: 1rem;
+}
 .flex{
   display: flex;
 }
@@ -587,6 +590,12 @@ video {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
 .font-serif{
   font-family: Merriweather, serif;
 }
@@ -597,11 +606,12 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
 .font-bold{
   font-weight: 700;
-}
-.font-extrabold{
-  font-weight: 800;
 }
 .text-black{
   --tw-text-opacity: 1;
@@ -619,6 +629,9 @@ video {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(147 197 253 / var(--tw-ring-opacity));
 }
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
 .duration-200{
   transition-duration: 200ms;
 }
@@ -627,8 +640,17 @@ video {
 }
 body.post-template {
     -webkit-font-smoothing: antialiased;
-    --tw-text-opacity: 1;
-    color: rgb(51 65 85 / var(--tw-text-opacity));
+}
+/*
+* Global stylings
+ */
+.global-underline {
+    padding-bottom: .2%;
+    transition: background-size .6s ease-out;
+    background: linear-gradient(var(--ghost-accent-color),var(--ghost-accent-color)) no-repeat left 123%/0 40%;
+}
+.global-underline:hover {
+    background-size: 97% 40%;
 }
 /*
 * Intro block
@@ -768,6 +790,12 @@ a.introButton::after {
   font-family: Merriweather, serif;
   margin-bottom: 4rem;
 }
+.post-list__title_small{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-family: Merriweather, serif;
+  margin-bottom: 4rem;
+}
 /*
 * Post card
 */
@@ -889,6 +917,25 @@ a.introButton::after {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
   padding-top: 6rem;
   padding-bottom: 2.5rem;
+}
+.prevnext-navigation-wrap{
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  margin-top: 3rem;
+}
+.gh-canvas > .prevnext-navigation {
+    display: flex;
+    justify-content: space-evenly;
+    grid-column: wide-start / wide-end;
+}
+.prevnext-navigation__link{
+  font-family: Raleway, sans-serif;
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 1rem;
 }
 .post-template .gh-title{
   font-family: Raleway, sans-serif;

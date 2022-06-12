@@ -15,7 +15,20 @@ production stylesheet in assets/built/screen.css using: gulp dev
 
 body.post-template {
     -webkit-font-smoothing: antialiased;
-    @apply text-slate-700;
+}
+
+/*
+* Global stylings
+ */
+
+.global-underline {
+    padding-bottom: .2%;
+    transition: background-size .6s ease-out;
+    background: linear-gradient(var(--ghost-accent-color),var(--ghost-accent-color)) no-repeat left 123%/0 40%;
+}
+
+.global-underline:hover {
+    background-size: 97% 40%;
 }
 
 /*
@@ -150,6 +163,12 @@ a.introButton::after {
     @apply mb-16;
 }
 
+.post-list__title_small {
+    @apply text-3xl;
+    @apply font-serif;
+    @apply mb-16;
+}
+
 /*
 * Post card
 */
@@ -273,6 +292,25 @@ a.introButton::after {
     @apply bg-gray-100;
     @apply pt-24;
     @apply pb-10;
+}
+
+.prevnext-navigation-wrap {
+    @apply bg-gray-100;
+    @apply py-10;
+    @apply mt-12;
+}
+
+.gh-canvas > .prevnext-navigation {
+    display: flex;
+    justify-content: space-evenly;
+    grid-column: wide-start / wide-end;
+}
+
+.prevnext-navigation__link {
+    @apply font-raleway;
+    @apply font-bold;
+    @apply text-3xl;
+    @apply mb-4;
 }
 
 .post-template .gh-title {
