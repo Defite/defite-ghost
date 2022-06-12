@@ -7,7 +7,7 @@ module.exports = {
             },
             fontFamily: {
                 serif: ["Merriweather", "serif"],
-                sans: ["Raleway", "sans-serif"]
+                raleway: ["Raleway", "sans-serif"],
             },
             fontSize: {
                 'intro': '5.5rem'

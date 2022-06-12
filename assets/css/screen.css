@@ -13,7 +13,7 @@ production stylesheet in assets/built/screen.css using: gulp dev
 @tailwind components;
 @tailwind utilities;
 
-body {
+body.post-template {
     -webkit-font-smoothing: antialiased;
     @apply text-slate-700;
 }
@@ -276,13 +276,14 @@ a.introButton::after {
 }
 
 .post-template .gh-title {
-    @apply font-sans;
+    @apply font-raleway;
     @apply font-extrabold;
     @apply text-5xl;
     @apply text-zinc-800;
 }
 
 .post-template .gh-excerpt {
+    @apply font-raleway;
     @apply mt-7;
     @apply text-xl;
     @apply text-gray-500;
@@ -342,6 +343,7 @@ use it for applying any other styles. */
 
 .gh-content p {
     @apply text-lg;
+    @apply font-raleway;
 }
 
 .gh-content .kg-card+:not(.kg-card):not([id]),
