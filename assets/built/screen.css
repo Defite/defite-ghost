@@ -10,7 +10,7 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* ---------------------------------------------------------- */
 /*
 
-! tailwindcss v3.1.2 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com
 
 */
 /*
@@ -149,7 +149,6 @@ select,
 textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
-  font-weight: inherit; /* 1 */
   line-height: inherit; /* 1 */
   color: inherit; /* 1 */
   margin: 0; /* 2 */
@@ -319,101 +318,13 @@ video {
   max-width: 100%;
   height: auto;
 }
+/*
+Ensure the default browser behavior of the `hidden` attribute.
+*/
+[hidden] {
+  display: none;
+}
 *, ::before, ::after{
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-}
-::-webkit-backdrop{
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-}
-::backdrop{
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
   --tw-translate-y: 0;
   --tw-rotate: 0;
@@ -493,6 +404,9 @@ video {
 .absolute{
   position: absolute;
 }
+.relative{
+  position: relative;
+}
 .z-20{
   z-index: 20;
 }
@@ -505,9 +419,6 @@ video {
 }
 .ml-6{
   margin-left: 1.5rem;
-}
-.mb-4{
-  margin-bottom: 1rem;
 }
 .flex{
   display: flex;
@@ -599,19 +510,9 @@ video {
 .font-serif{
   font-family: Merriweather, serif;
 }
-.font-raleway{
-  font-family: Raleway, sans-serif;
-}
 .text-xl{
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-.text-3xl{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-.font-bold{
-  font-weight: 700;
 }
 .text-black{
   --tw-text-opacity: 1;
@@ -908,15 +809,75 @@ a.introButton::after {
   --tw-numeric-figure: lining-nums;
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
 }
-.post-template .gh-head{
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
+/* .post-template .gh-head {
+    @apply bg-gray-100;
+} */
 .gh-article .gh-header{
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+/* With cover image */
+.gh-article .gh-header {
+    position: relative;
+    height: 300px;
+}
+.gh-article .gh-header::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.gh-article .gh-feature-image {
+    grid-column: full-start / full-end;
+}
+.gh-article .gh-feature-image figcaption{
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 0.25rem;
+  text-align: center;
+}
+.gh-article .gh-feature-image img {
+    width: 100%;
+    height: 300px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.gh-article .gh-header-inner{
+  top: 6rem;
+
+    position: absolute;
+    left: 0;
+}
+.gh-article .gh-header-inner > *,
+.gh-article .gh-header-inner .gh-title,
+.gh-article .gh-header-inner .gh-excerpt {
+    color: white;
+}
+/* Without cover image */
+.gh-article.no-image .gh-header{
   padding-top: 6rem;
   padding-bottom: 2.5rem;
+}
+.gh-article.no-image .gh-header::before {
+    display: none;
+}
+.gh-article.no-image .gh-header-inner .gh-post-meta, .gh-article.no-image .gh-header-inner .gh-excerpt{
+  --tw-text-opacity: 1;
+  color: rgb(113 113 122 / var(--tw-text-opacity));
+}
+.gh-article.no-image .gh-header-inner .gh-title{
+  --tw-text-opacity: 1;
+  color: rgb(39 39 42 / var(--tw-text-opacity));
+}
+.gh-article.no-image .gh-header-inner {
+    position: relative;
+    top: 0;
 }
 .prevnext-navigation-wrap{
   --tw-bg-opacity: 1;
@@ -996,15 +957,14 @@ use it for applying any other styles. */
     width: 100%;
 }
 .gh-content{
-  margin-top: 2.5rem;
+  margin-top: 3.5rem;
 }
 .gh-content p{
   font-size: 1.125rem;
   line-height: 1.75rem;
   font-family: Raleway, sans-serif;
 }
-.gh-content .kg-card+:not(.kg-card):not([id]), 
-.gh-content :not(.kg-card):not([id])+.kg-card{
+.gh-content .kg-card+:not(.kg-card):not([id]), .gh-content :not(.kg-card):not([id])+.kg-card{
   margin-top: 2.5rem;
 }
 .gh-content figcaption{

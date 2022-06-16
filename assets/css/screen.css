@@ -284,14 +284,83 @@ a.introButton::after {
     @apply lining-nums;
 }
 
-.post-template .gh-head {
+/* .post-template .gh-head {
+    @apply bg-gray-100;
+} */
+.gh-article .gh-header {
     @apply bg-gray-100;
 }
 
+/* With cover image */
 .gh-article .gh-header {
-    @apply bg-gray-100;
+    position: relative;
+    height: 300px;
+}
+
+.gh-article .gh-header::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.gh-article .gh-feature-image {
+    grid-column: full-start / full-end;
+}
+
+.gh-article .gh-feature-image figcaption {
+    @apply text-gray-500;
+    @apply text-base;
+    @apply mt-1;
+    @apply text-center;
+}
+
+.gh-article .gh-feature-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.gh-article .gh-header-inner {
+    @apply top-24;
+
+    position: absolute;
+    left: 0;
+}
+
+.gh-article .gh-header-inner > *,
+.gh-article .gh-header-inner .gh-title,
+.gh-article .gh-header-inner .gh-excerpt {
+    color: white;
+}
+
+/* Without cover image */
+
+.gh-article.no-image .gh-header {
     @apply pt-24;
     @apply pb-10;
+}
+
+.gh-article.no-image .gh-header::before {
+    display: none;
+}
+
+.gh-article.no-image .gh-header-inner .gh-post-meta,
+.gh-article.no-image .gh-header-inner .gh-excerpt {
+    @apply text-zinc-500;
+}
+
+.gh-article.no-image .gh-header-inner .gh-title {
+    @apply text-zinc-800;
+}
+
+.gh-article.no-image .gh-header-inner {
+    position: relative;
+    top: 0;
 }
 
 .prevnext-navigation-wrap {
@@ -376,7 +445,7 @@ use it for applying any other styles. */
 }
 
 .gh-content {
-    @apply mt-10;
+    @apply mt-14;
 }
 
 .gh-content p {
